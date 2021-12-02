@@ -1,0 +1,40 @@
+server:
+    port: 9999
+    servlet:
+        context-path: /jshERP-boot
+        session:
+            timeout: 36000 #登录超时-秒
+spring:
+    datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        password: 123456
+        url: jdbc:mysql://192.168.59.105:3306/jsh_erp?useUnicode=true&characterEncoding=utf8&useCursorFetch=true&defaultFetchSize=500&allowMultiQueries=true&rewriteBatchedStatements=true&useSSL=false
+        username: root
+    redis:
+        host: 192.168.59.105
+        port: 6379
+    servlet:
+        multipart:
+            max-file-size: 10485760
+            max-request-size: 10485760
+    flyway:
+        locations: classpath:db
+mybatis-plus:
+    mapper-locations: classpath:./mapper_xml/*.xml
+
+demonstrate:
+    open: false #演示模式开关-默认关闭:false
+file:
+    path: E:\IDEA_DATA\jshERP\fileTemp #文件上传根目录
+manage:
+    roleId: 10 #租户对应的角色id
+
+
+#插件配置
+plugin:
+    pluginConfigFilePath: pluginConfig
+    pluginPath: plugins
+    runMode: prod
+tenant:
+    tryDayLimit: 3000 #租户允许试用的天数
+    userNumLimit: 1000000 #租户允许创建的用户数
